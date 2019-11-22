@@ -4,7 +4,7 @@
 ### by Aren R. Windham and Clayton D. Allen
 
 ### each section is preceded by a description of the vulnerability
-### as well as a code block that demonstraits it.
+### as well as a code block that demonstrates it.
 
 ## SECTION ONE - HOW TO SETUP
 # 1 - Download the ISO
@@ -22,6 +22,7 @@ darkly_ip=192.168.56.101
 #	submitting a feedback with the cookie I_am_admin with a value of
 #	68934a3e9455fa72420237eb05902327
 # solution:
+# - TODO provide an actual solution
 #	lol idk
 echo -n '1: '
 curl -s 'http://'$darkly_ip'/index.php?page=feedback' \
